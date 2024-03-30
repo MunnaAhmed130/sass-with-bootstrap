@@ -1,0 +1,21 @@
+{
+  "name": "sass-with-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass scss:dist/css",
+    "watch:sass": "sass --watch scss:dist/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.72.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "autoprefixer": "^10.4.19",
+    "bootstrap": "^5.3.3"
+  }
+}

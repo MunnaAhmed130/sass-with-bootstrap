@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$bg: rgb(39, 39, 39);
+$color: white;
+
+body {
+  background-color: $bg;
+  color: $color;
+}
