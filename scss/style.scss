@@ -1,13 +1,18 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@forward "custom";
 
-$bg: rgb(39, 39, 39);
-$color: white;
+//  components
+@forward "components/animations";
+@forward "components/buttons";
+@forward "components/mixins";
+@forward "components/typography";
 
-body {
-  background-color: $bg;
-  color: $color;
-}
+//  sections
+@forward "sections/navbar";
+@forward "sections/intro";
+@forward "sections/companies";
+@forward "sections/services";
+@forward "sections/testimonials";
+@forward "sections/faq";
+@forward "sections/portfolio";
+@forward "sections/get-started";
+@forward "sections/footer";
