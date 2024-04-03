@@ -1,18 +1,7 @@
 @forward "custom";
 
-//  components
-@forward "components/animations";
-@forward "components/buttons";
-@forward "components/mixins";
-@forward "components/typography";
+// sections
+@forward "sections";
 
-//  sections
-@forward "sections/navbar";
-@forward "sections/intro";
-@forward "sections/companies";
-@forward "sections/services";
-@forward "sections/testimonials";
-@forward "sections/faq";
-@forward "sections/portfolio";
-@forward "sections/get-started";
-@forward "sections/footer";
+//  components
+// @forward "components";
