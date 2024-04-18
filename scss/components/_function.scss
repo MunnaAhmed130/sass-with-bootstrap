@@ -1,0 +1,21 @@
+@use "sass:math";
+
+// @function for converting px to rem
+@function rem($px) {
+  @if math.is-unitless($px) {
+    @return calc($px / 16 * 1rem);
+  } @else {
+    // @error "Argument must be unitless";
+    @return calc($px / 16px * 1rem);
+  }
+
+  // @return calc($px / 16px * 1rem);
+}
+
+// @debug Rem(18px);
+// @debug type-of(px1);
+// @debug not math.is-unitless(15);
+
+// @debug rem(18);
+
+// @debug math.div(15px, (15px * 0 + 1));
