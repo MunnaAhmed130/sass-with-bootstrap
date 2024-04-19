@@ -1,0 +1,44 @@
+@use "../custom" as *;
+@use "../abstracts/functions" as func;
+@use "../abstracts/mixins";
+
+.btn-rounded {
+  position: relative;
+  font-weight: 700;
+  background-color: white;
+  border: 1px solid rgba(white, 0.5);
+  padding: func.rem(15px) func.rem(70px) func.rem(15px) func.rem(20px);
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+  &:hover {
+    @include mixins.gradient;
+    color: white;
+
+    .phone-icon-container {
+      background-color: rgba(black, 0.75);
+    }
+  }
+}
+
+.phone-icon-container {
+  position: absolute;
+  top: 50%;
+  right: func.rem(5px);
+  transform: translateY(-50%);
+
+  $box: func.rem(42px);
+  height: $box;
+  width: $box;
+
+  background-color: $primary;
+  border-radius: 50%;
+}
+
+.fa-solid.fa-phone {
+  color: white;
+  font-size: 1rem;
+  line-height: 2.5;
+}
