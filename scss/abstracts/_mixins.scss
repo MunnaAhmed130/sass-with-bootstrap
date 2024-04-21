@@ -1,4 +1,4 @@
-@use "../custom";
+@use "../vendors/custom";
 
 @mixin gradient {
   background: linear-gradient(

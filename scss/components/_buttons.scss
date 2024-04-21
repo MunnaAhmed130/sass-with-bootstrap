@@ -1,4 +1,4 @@
-@use "../custom" as *;
+@use "../vendors/custom" as bootstrap;
 @use "../abstracts/functions" as func;
 @use "../abstracts/mixins";
 
@@ -9,7 +9,7 @@
   border: 1px solid rgba(white, 0.5);
   padding: func.rem(15px) func.rem(70px) func.rem(15px) func.rem(20px);
 
-  @include media-breakpoint-down(sm) {
+  @include bootstrap.media-breakpoint-down(sm) {
     display: none;
   }
 
@@ -33,12 +33,11 @@
   height: $box;
   width: $box;
 
-  background-color: $primary;
-  border-radius: 50%;
+  background-color: bootstrap.$primary;
 }
 
-.fa-solid.fa-phone {
-  color: white;
+.fa-solid.fa-phone,
+.fa-solid.fa-arrow-right {
   font-size: 1rem;
   line-height: 2.5;
 }
