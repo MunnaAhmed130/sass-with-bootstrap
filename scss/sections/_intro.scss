@@ -1,0 +1,20 @@
+@use "../vendors/custom" as bootstrap;
+@use "../abstracts/mixins";
+@use "../abstracts/functions" as func;
+
+.intro-section {
+  @include mixins.gradient;
+  padding-top: 10rem;
+}
+
+.fa-solid.fa-circle-play {
+  font-size: 6rem;
+}
+
+.waves-svg {
+  width: 100%;
+  // 200-400px from 768vw to 2000vw
+  height: clamp(12.5rem, 16.2338vw + 4.70779rem, 25rem);
+  object-fit: cover;
+  object-position: bottom;
+}
