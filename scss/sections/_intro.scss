@@ -8,6 +8,10 @@
   padding-top: 10rem;
 }
 
+.intro__description {
+  font-size: clamp(1rem, 1.19048vw + 0.761905rem, 1.5rem);
+}
+
 .fa-solid.fa-circle-play {
   font-size: var(--intro-play-btn-size);
   z-index: 100;
