@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sass with bootstrap</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/fontawesome.css" />
+
+    <!-- <link rel="stylesheet" href="./dist/vendors/css/glightbox.min.css" />
+    <script src="./dist/vendors/js/glightbox.min.js"></script> -->
+
+    <!-- glightbox using cdn -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+
+    <!-- <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    /> -->
+  </head>
+  <body>
+    <!-- #NAVBAR -->
+
+    <nav class="navbar navbar-expand-xl navbar-dark menu fixed-top shadow">
+      <div class="scroll-progress-bar__container position-absolute top-0">
+        <div class="scroll-progress-bar"></div>
+      </div>
+      <div class="container">
+        <a class="navbar-brand fs-2 fw-bolder" href="#"
+          >Munna.
+          <!-- <img src="assets/images/logo.png" alt="logo" /> -->
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav text-capitalize">
+            <li class="nav-item">
+              <a class="nav-link text-light" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Services</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Faq</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Contact</a>
+            </li>
+          </ul>
+          <button type="button" class="rounded-pill btn-rounded">
+            +1 2345676532
+            <span class="phone-icon-container rounded-circle">
+              <i class="fa-solid fa-phone text-light"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- #INTRO  -->
+    <section class="intro-section" id="intro">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-light text-start">
+            <div>
+              <h1
+                class="display-2 fw-bold text-capitalize d-inline-block intro__heading"
+              >
+                Hey!,
+                <br />
+                I'm Munna Ahmed
+              </h1>
+              <p class="d-block fs-4 mb-4 lh-base">
+                This is a multi-purpose responsive layout created with bootstrap
+                v5 & Sass.
+              </p>
+            </div>
+
+            <button type="button" class="rounded-pill btn-rounded">
+              Get in Touch<span class="phone-icon-container rounded-circle"
+                ><i class="fa-solid fa-arrow-right text-light"></i
+              ></span>
+            </button>
+          </div>
+          <div class="col-md-6 text-center">
+            <div class="video-box position-relative">
+              <img
+                src="assets/images/arts/intro-section-illustration.png"
+                alt="illustration"
+                class="img-fluid"
+              />
+
+              <a
+                class="glightbox position-absolute top-50 start-50 translate-middle"
+              >
+                <span>
+                  <i class="fa-solid fa-circle-play text-secondary"></i>
+                </span>
+
+                <span
+                  class="position-absolute top-0 start-0 play-triangle rounded-circle"
+                ></span>
+
+                <span
+                  class="circle-border position-absolute top-0 start-0 rounded-circle"
+                ></span>
+                <span
+                  class="circle-border circle-border--2 position-absolute top-0 start-0 rounded-circle"
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img
+        src="assets/images/wave-haikei.svg"
+        class="waves-svg"
+        alt="wave-svg"
+      />
+    </section>
+
+    <script src="js/scrollbar.js"></script>
+    <!-- <script src="vendors/js/bootstrap.js"></script> -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+    <script type="text/javascript">
+      const lightbox = GLightbox({
+        // href: "https://www.youtube.com/watch?v=Ga6RYejo6Hk",
+        // type: "video",
+        // source: "youtube", //vimeo, youtube or local
+        // width: 900,
+        href: "assets/images/arts/intro-section-illustration.png",
+        type: "image",
+        autoplayVideos: true,
+        // title: "My Title",
+        // description: "Example",
+      });
+    </script>
+  </body>
+</html>
