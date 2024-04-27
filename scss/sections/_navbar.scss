@@ -8,3 +8,17 @@
 .nav-item {
   padding-inline: func.rem(11px);
 }
+
+.scroll-progress-bar__container {
+  width: 100vw;
+  height: 4px;
+  // background-color: #fff;
+  @include mixins.gradient;
+}
+
+.scroll-progress-bar {
+  // width: 60%;
+  height: 100%;
+  background-color: rgb(234, 181, 255);
+  transition: 1s;
+}
