@@ -1,6 +1,7 @@
 @use "../vendors/custom" as bootstrap;
 @use "../abstracts/mixins";
 @use "../abstracts/functions" as func;
+@use "../components/animations" as animate;
 
 .intro-section {
   @include mixins.gradient;
@@ -8,7 +9,28 @@
 }
 
 .fa-solid.fa-circle-play {
-  font-size: 6rem;
+  font-size: var(--intro-play-btn-size);
+  z-index: 100;
+}
+
+$box: var(--intro-play-btn-size);
+
+.play-triangle {
+  z-index: -2;
+  width: $box;
+  height: $box;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.circle-border {
+  width: $box;
+  height: $box;
+  border: 0 solid white;
+  @include animate.pulse-border;
+}
+
+.circle-border--2 {
+  animation-delay: 300ms;
 }
 
 .waves-svg {
