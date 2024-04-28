@@ -1,0 +1,18 @@
+.line::after {
+  content: "";
+  width: 13rem;
+  height: 0.1rem;
+  display: block;
+  margin-inline: auto;
+  margin-top: 1rem;
+  background-color: black;
+}
+
+// .line::after {
+//   content: "";
+//   width: 2rem;
+//   height: 0.5rem;
+//   display: block;
+//   margin-inline: auto;
+//   background-color: black;
+// }
