@@ -13,8 +13,9 @@ let value = document.body.scrollHeight - window.innerHeight;
 
 window.addEventListener("resize", () => {
   value = document.body.scrollHeight - window.innerHeight;
-  // console.log(value);
 });
+
+// console.log(value);
 
 window.addEventListener("scroll", () => {
   const scroll = scrollY;
