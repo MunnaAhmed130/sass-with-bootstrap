@@ -2,16 +2,18 @@
 @use "../abstracts/functions" as func;
 @use "../abstracts/mixins";
 
+.nav__connect-btn {
+  @include bootstrap.media-breakpoint-down(sm) {
+    display: none;
+  }
+}
+
 .btn-rounded {
   position: relative;
   font-weight: 700;
   background-color: white;
   border: 1px solid rgba(white, 0.5);
   padding: func.rem(15px) func.rem(70px) func.rem(15px) func.rem(20px);
-
-  @include bootstrap.media-breakpoint-down(sm) {
-    display: none;
-  }
 
   &:hover {
     @include mixins.gradient;
