@@ -1,0 +1,73 @@
+@use "../vendors/custom" as bootstrap;
+
+.service {
+  // padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.section__heading {
+  color: rgb(33, 31, 37);
+}
+
+.services__heading {
+  font-size: clamp(1.25rem, 1.70455vw + 0.909091rem, 2rem);
+  text-transform: uppercase;
+  font-weight: 800;
+
+  // gradient text color
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    bootstrap.$primary,
+    bootstrap.$secondary
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services__description,
+.service__description {
+  font-size: clamp(1rem, 0.426136vw + 0.914773rem, 1.1875rem);
+  color: rgb(131, 127, 127);
+  letter-spacing: 1px;
+}
+
+.service__content {
+  padding: 1rem;
+}
+
+.service__icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.service__title {
+  font-weight: 700;
+  text-transform: capitalize;
+
+  //  gradient text color
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    bootstrap.$primary,
+    bootstrap.$secondary
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description--divider {
+  @include bootstrap.media-breakpoint-up(lg) {
+    border-right: 2px solid rgb(219, 219, 219);
+  }
+}
+
+.service__img {
+  padding: 1rem;
+
+  @include bootstrap.media-breakpoint-down(sm) {
+    padding-inline: 1.5rem;
+    padding-block: 0;
+  }
+}
