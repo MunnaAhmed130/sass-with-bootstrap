@@ -1,19 +1,29 @@
+@use "../vendors/custom" as bootstrap;
+
 .line::after {
   content: "";
-  width: 13rem;
+  width: min(50%, 13rem);
   height: 0.2rem;
   border-radius: 1rem;
   display: block;
   margin-inline: auto;
   margin-top: 1rem;
-  background-color: rgb(128, 50, 216);
+
+  background-image: linear-gradient(
+    to right,
+    bootstrap.$primary,
+    bootstrap.$secondary
+  );
+
+  // background-color: rgb(128, 50, 216);
 }
 
-// .line::after {
-//   content: "";
-//   width: 2rem;
-//   height: 0.5rem;
-//   display: block;
-//   margin-inline: auto;
-//   background-color: black;
-// }
+.testimonials__line {
+  // width: 6.25rem;
+  width: min(50%, 10rem);
+  height: 0.1rem;
+  border: none;
+  // height: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+}
