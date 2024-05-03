@@ -1,0 +1,102 @@
+@use "../vendors/custom" as bootstrap;
+@use "../abstracts/mixins";
+
+.testimonials {
+  @include mixins.gradient();
+  position: relative;
+}
+
+// testimonials
+
+.testimonials__card {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2rem;
+  padding-bottom: 4rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.fa-quote-left,
+.fa-quote-right {
+  font-size: 1.5rem;
+  color: bootstrap.$primary;
+  opacity: 0.4;
+}
+
+.ratings {
+  padding-top: 1rem;
+  color: bootstrap.$primary;
+  opacity: 0.6;
+  font-size: 1rem;
+}
+
+.client__info {
+  padding-top: 3.5rem;
+}
+
+.client__img {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6rem;
+  height: 6rem;
+  border: 3px solid rgba(bootstrap.$primary, 0.5);
+}
+
+// waves svg styles
+
+.svg__top {
+  object-position: left -0.5rem;
+
+  @include bootstrap.media-breakpoint-up(xxl) {
+    object-position: left -4rem;
+  }
+}
+
+.svg__bottom {
+  object-position: top;
+}
+
+.testimonials__svg {
+  width: 100%;
+  object-fit: cover;
+
+  @include bootstrap.media-breakpoint-up(md) {
+    height: 9rem;
+  }
+
+  @include bootstrap.media-breakpoint-up(lg) {
+    height: 12rem;
+  }
+
+  @include bootstrap.media-breakpoint-up(xl) {
+    height: 15rem;
+  }
+}
+
+// .testimonials__message {
+//   position: relative;
+//   &::before {
+//     position: absolute;
+//     // top: -28px;
+//     top: -1rem;
+//     font: var(--fa-font-solid);
+//     display: inline-block;
+//     content: "\f10d";
+//     font-weight: 900;
+//     font-size: 3rem;
+//     color: bootstrap.$primary;
+//     opacity: 0.3;
+//   }
+//   &::after {
+//     position: absolute;
+//     // top: calc(100% - 1rem);
+//     // top: -1rem;
+//     font: var(--fa-font-solid);
+//     display: inline-block;
+//     font-weight: 900;
+//     content: "\f10e";
+//     font-size: 2.5rem;
+//     color: bootstrap.$primary;
+//   }
+// }
