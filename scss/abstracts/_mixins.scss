@@ -1,9 +1,9 @@
 @use "../vendors/custom";
 
-@mixin gradient {
+@mixin gradient($leftOpacity: 0.95, $rightOpacity: 0.95) {
   background: linear-gradient(
     to right,
-    rgba(custom.$primary, 0.95),
-    rgba(custom.$secondary, 0.95)
+    rgba(custom.$primary, $leftOpacity),
+    rgba(custom.$secondary, $rightOpacity)
   );
 }
