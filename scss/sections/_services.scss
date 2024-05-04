@@ -6,10 +6,6 @@
   align-items: center;
 }
 
-.section__heading {
-  color: rgb(33, 31, 37);
-}
-
 .services__heading {
   font-size: clamp(1.25rem, 1.70455vw + 0.909091rem, 2rem);
   text-transform: uppercase;
@@ -26,11 +22,18 @@
   -webkit-text-fill-color: transparent;
 }
 
-.services__description,
-.service__description {
-  font-size: clamp(1rem, 0.426136vw + 0.914773rem, 1.1875rem);
+.services p {
   color: rgb(131, 127, 127);
-  letter-spacing: 1px;
+}
+
+.services__description {
+  font-size: clamp(1rem, 0.426136vw + 0.914773rem, 1.1875rem);
+  // letter-spacing: 1px;
+}
+
+.service__description {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
 }
 
 .service__content {
