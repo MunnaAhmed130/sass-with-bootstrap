@@ -7,7 +7,9 @@
 }
 
 .services__heading {
-  font-size: clamp(1.25rem, 1.70455vw + 0.909091rem, 2rem);
+  // 20px 30px - 320 - 1440 vw
+  font-size: clamp(1.25rem, 0.892857vw + 1.07143rem, 1.875rem);
+  // font-size: 20px;
   text-transform: uppercase;
   font-weight: 800;
 
