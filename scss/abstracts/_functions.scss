@@ -12,6 +12,17 @@
   // @return calc($px / 16px * 1rem);
 }
 
+@function fluid-fs($minpx, $maxpx, $minvw, $maxvw) {
+  $pv: calc((100 * ($maxpx - $minpx)) / ($maxvw - $minvw)) * 1vw;
+  $pr: calc(((($minvw * $maxpx) - ($maxvw * $minpx)) / ($minvw - $maxvw)) / 16) *
+    1rem;
+  $min: calc($minpx / 16) * 1rem;
+  $max: calc($maxpx / 16) * 1rem;
+  @return clamp($min, $pv + $pr, $max);
+}
+
+@debug fluid-fs(36, 52, 600, 1400);
+
 // @debug rem(18px);
 // @debug type-of(px1);
 // @debug not math.is-unitless(15);
