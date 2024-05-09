@@ -21,8 +21,12 @@
 
 // @debug px(0.625rem);
 
-//  this function takes unitless values as pixels
-//  for font size args can be rem value
+//  fluid-fs function -
+//  - takes 4 arguments
+//  - first 2 is for minimum and maxium font size in pixel or rem
+//  - takes all unitless values as pixels but first 2 args can be rem
+//  - last 2 should always be unitless as they are minimum & maximum viewport width in pixels
+
 @function fluid-fs($minpx, $maxpx, $minvw, $maxvw) {
   @if math.unit($minpx) == "rem" {
     $minpx: px($minpx);
