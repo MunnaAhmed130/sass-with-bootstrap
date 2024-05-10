@@ -17,9 +17,16 @@ window.addEventListener("resize", () => {
 
 // console.log(value);
 
+window.addEventListener("load", () => {
+  const scroll = scrollY;
+  const progress = Math.round((scroll / value) * 100);
+  console.log(scroll, progress);
+  document.querySelector(".scroll-progress-bar").style.width = `${progress}vw`;
+});
+
 window.addEventListener("scroll", () => {
   const scroll = scrollY;
   const progress = Math.round((scroll / value) * 100);
-  // console.log(scroll, progress);
+  console.log(scroll, progress);
   document.querySelector(".scroll-progress-bar").style.width = `${progress}vw`;
 });
