@@ -162,4 +162,6 @@
 // @debug fluid-fs(16px, 32px, 600, 1400); //  px & unitless
 // @debug fluid-fs(1rem, 2rem, 600, 1400); // rem & unitless
 // @debug fluid-fs(1rem, 32px, 600, 1400); // rem & unitless
-// @debug fluid-fs(1vw, 32px, 600, 1400); // rem & unitless
+
+// @debug fluid-fs(1rem, 2.75rem, 600, 1440);
+// @debug fluid-fs(1vw, 32px, 600, 1400); // error case
