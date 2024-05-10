@@ -1,80 +1,165 @@
 @use "sass:math";
+@use "sass:list";
 
-// @function for converting px to rem
-@function rem($px) {
-  @if math.is-unitless($px) {
-    @return calc($px / 16 * 1rem);
-  } @else {
-    // @error "Argument must be unitless";
-    @return calc($px / 16px * 1rem);
+// returns the unit of one arg if all args have the same unit
+@function units($values...) {
+  $lastUnits: ();
+
+  @each $value in $values {
+    @if not
+      list.index($lastUnits, math.unit($value)) and
+      type-of($value) ==
+      "number"
+    {
+      $lastUnits: append($lastUnits, math.unit($value));
+    }
   }
 
-  // @return calc($px / 16px * 1rem);
+  @return $lastUnits;
 }
 
-// @debug rem(18);
+// @debug units(1rem, 3rem, 4rem);
+// @debug units(1rem, 3rem, 4);
+// @debug "" + rem;
+// @debug null + rem;
+// @debug rem + rem;
+// @debug units(1rem, 1rem, 1px, 2rem, 1px, 1vw, 1, 1vh);
+
+//  check if numbers are unitless, takes arbitrary arguments
+@function all-unitless($numbers...) {
+  $bool: true;
+  @each $number in $numbers {
+    $bool: math.is-unitless($number) and type-of($number) == "number" and $bool;
+  }
+  @return $bool;
+}
+
+// @debug not math.is-unitless(15);
+// @debug all-unitless(36, 52, 600, 1400px);
+// @debug 1px * 1px;
+
+// @debug math.div(2rem * 16, 1rem);
+// @debug math.unit(12rem);
+
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not math.is-unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  } @else {
+    @return $number;
+  }
+}
+
+// @debug strip-unit(6rem);
+
+// @debug type-of(1px);
+// @debug math.div(15px, (15px * 0 + 1));
+// @debug 15px * 0;
+// @debug (15px * 0 + 1);
+// @debug strip-unit(10px);
+// @debug strip-unit(10rem);
+// @debug strip-unit(10);
+
+// @function for converting px to rem
+@function rem($value) {
+  @if math.is-unitless($value) {
+    @return calc($value / 16 * 1rem);
+  } @else if math.unit($value) == "px" {
+    @return calc($value / 16px * 1rem);
+  } @else {
+    @warn "Value must be in pixels.";
+    @return $value;
+  }
+}
+
+// @debug false or true; // returns true
+
+// @debug rem(100);
 // @debug rem(18px);
 
-@function px($rem) {
-  @return math.div($rem * 16, 1rem);
+@function rem-to-px($value) {
+  @if math.unit($value) == "rem" {
+    // @return math.div($value * 16, 1rem);
+    @return calc($value * 16px / 1rem);
+  } @else if math.is-unitless($value) {
+    @return calc($value * 16px);
+  } @else {
+    @warn "value must in rems";
+    @return $value;
+  }
 }
 
-// @debug px(0.625rem);
+// @debug rem-to-px(0.625rem);
+// @debug rem-to-px(2rem);
+// @debug rem-to-px(2);
+// @debug units(1rem, 2rem);
+
+// converts any value number value
+@function unitless-px($value) {
+  @if math.unit($value) == "rem" {
+    $value: rem-to-px($value);
+  }
+  $value: strip-unit($value);
+  @return $value;
+}
+
+// @function do($value) {
+//   @if math.unit($value) != "rem" and math.unit($value) != "px" {
+//     @return "none";
+//   } @else {
+//     @return math.unit($value);
+//   }
+// }
+// @debug do(1vh);
+// // @debug "rem" and "px";
 
 //  fluid-fs function -
 //  - takes 4 arguments
-//  - first 2 is for minimum and maxium font size in pixel or rem
+//  - first 2 is for min & max font size
+//  - last 2 is for min & max viewport width
+//  - font sizes can be in pixel or rem
 //  - takes all unitless values as pixels but first 2 args can be rem
 //  - last 2 should always be unitless as they are minimum & maximum viewport width in pixels
+@function fluid-fs($minpx, $maxpx, $minvw: 425, $maxvw: 1024) {
+  $units: units($minpx, $maxpx, $minvw, $maxvw);
 
-@function fluid-fs($minpx, $maxpx, $minvw, $maxvw) {
-  @if math.unit($minpx) == "rem" {
-    $minpx: px($minpx);
+  @each $unit in $units {
+    @if $unit != "rem" and $unit != "px" and $unit != "" {
+      @error "all args must be with px or rem unit otherwise unitless";
+    }
   }
 
-  @if math.unit($maxpx) == "rem" {
-    $maxpx: px($maxpx);
-  }
+  $minpx: unitless-px($minpx);
+  $maxpx: unitless-px($maxpx);
+  $minvw: unitless-px($minvw);
+  $maxvw: unitless-px($maxvw);
 
-  @if check-unitless($minpx, $maxpx, $minvw, $maxvw) {
-    $pv: calc((100 * ($maxpx - $minpx)) / ($maxvw - $minvw)) * 1vw;
+  // at this point the args has to be unitless
+  @if all-unitless($minpx, $maxpx, $minvw, $maxvw) {
+    $pv: calc(((100 * ($maxpx - $minpx)) / ($maxvw - $minvw)) * 1vw);
     $pr: calc(
         ((($minvw * $maxpx) - ($maxvw * $minpx)) / ($minvw - $maxvw)) / 16
       ) *
       1rem;
     $min: calc($minpx / 16) * 1rem;
     $max: calc($maxpx / 16) * 1rem;
-
     @return clamp($min, $pv + $pr, $max);
-  } @else {
-    @warn "all values must be a pixel value and unitless";
-    @return null;
   }
+
+  // @return $minpx, $maxpx, $minvw, $maxvw;
 }
 
-// @debug fluid-fs(16, 32, 600, 1400);
-// @debug fluid-fs(1rem, 2rem, 600, 1400);
-// @debug fluid-fs(36px, 52px, 600px, 1400px);
-// @debug fluid-fs(36, 52, 600, 1400);
+// ALL THE EDGE CASES FOR FLUID-FONTSIZE FUNCTION
 
-//  check if numbers are unitless
-@function check-unitless($numbers...) {
-  $bool: true;
-  @each $number in $numbers {
-    $bool: math.is-unitless($number) and $bool;
-  }
-  @return $bool;
-}
-
-// @debug check-unitless(36, 52, 600, 1400px);
-// @debug 1px * 1px;
-
-// @debug math.div(2rem * 16, 1rem);
-// @debug math.unit(12rem);
-
-// @debug (16px * 0 + 1);
-
-// @debug type-of(px1);
-// @debug not math.is-unitless(15);
-
-// @debug math.div(15px, (15px * 0 + 1));
+// @debug fluid-fs(16, 32, 600, 1400); // all unitless
+// @debug fluid-fs(1rem, 2rem, rem(600), rem(1400)); // all rems
+// @debug fluid-fs(16px, 32px, 600px, 1400px); // all px units
+// @debug fluid-fs(16px, 32, 600px, 1400); // all px units with unitless
+// @debug fluid-fs(16px, 2rem, 600px, 1400); // all px units
+// @debug fluid-fs(1rem, 32, 600px, rem(1400)); // all px units
+// @debug fluid-fs(16px, 32px, 600, 1400); //  px & unitless
+// @debug fluid-fs(1rem, 2rem, 600, 1400); // rem & unitless
+// @debug fluid-fs(1rem, 32px, 600, 1400); // rem & unitless
+// @debug fluid-fs(1vw, 32px, 600, 1400); // rem & unitless
