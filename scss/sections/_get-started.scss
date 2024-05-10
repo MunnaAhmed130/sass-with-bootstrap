@@ -1,0 +1,46 @@
+@use "../abstracts/mixins";
+@use "../vendors/custom" as bootstrap;
+
+.contact {
+  background-color: #e7ecee;
+  padding-block: 6rem;
+}
+
+.gradient {
+  @include mixins.gradient;
+}
+
+.form__container {
+  @include bootstrap.media-breakpoint-up(sm) {
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
+  }
+}
+
+.cta--lists {
+  list-style-type: none;
+  padding-left: 0.5rem;
+}
+
+.cta--list {
+  margin-bottom: 0.5rem;
+
+  &::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\f00c";
+
+    margin-right: 1rem;
+  }
+}
+
+//  form
+
+.cta--form-title {
+  font-size: 28px;
+  font-weight: 700;
+  @include mixins.gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
