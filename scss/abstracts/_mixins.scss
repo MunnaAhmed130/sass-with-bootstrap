@@ -7,3 +7,9 @@
     rgba(custom.$secondary, $rightOpacity)
   );
 }
+
+@mixin gradient-text($color1: custom.$primary, $color2: custom.$secondary) {
+  background-image: linear-gradient(to right, $color1, $color2);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
