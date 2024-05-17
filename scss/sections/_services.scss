@@ -1,27 +1,18 @@
 @use "../vendors/custom" as bootstrap;
+@use "../abstracts/mixins";
+@use "../abstracts/functions" as func;
 
 .service {
-  // padding-bottom: 4rem;
   display: flex;
   align-items: center;
 }
 
 .services__heading {
-  // 20px 30px - 320 - 1440 vw
-  font-size: clamp(1.25rem, 0.892857vw + 1.07143rem, 1.875rem);
-  // font-size: 20px;
   text-transform: uppercase;
   font-weight: 800;
 
   // gradient text color
-  display: inline-block;
-  background-image: linear-gradient(
-    to right,
-    bootstrap.$primary,
-    bootstrap.$secondary
-  );
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include mixins.gradient-text;
 }
 
 .services p {
@@ -53,13 +44,7 @@
 
   //  gradient text color
   display: inline-block;
-  background-image: linear-gradient(
-    to right,
-    bootstrap.$primary,
-    bootstrap.$secondary
-  );
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include mixins.gradient-text;
 }
 
 .description--divider {
