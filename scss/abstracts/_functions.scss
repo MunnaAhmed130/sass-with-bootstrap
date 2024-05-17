@@ -96,7 +96,8 @@
 // @debug rem-to-px(2);
 // @debug units(1rem, 2rem);
 
-// converts any value number value
+// converts the value to rem if rem unit is specified
+// strips units and return the unitless value
 @function unitless-px($value) {
   @if math.unit($value) == "rem" {
     $value: rem-to-px($value);
@@ -135,6 +136,8 @@
   $maxpx: unitless-px($maxpx);
   $minvw: unitless-px($minvw);
   $maxvw: unitless-px($maxvw);
+
+  // @debug $minpx, $maxpx, $minvw, $maxvw;
 
   // at this point the args has to be unitless
   @if all-unitless($minpx, $maxpx, $minvw, $maxvw) {
