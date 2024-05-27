@@ -1,3 +1,8 @@
+@use "../vendors/custom" as *;
+
 :root {
   --intro-play-btn-size: clamp(4rem, 3.63636vw + 3.27273rem, 6rem);
+
+  // use sass variables as custom properties
+  --accent-clr: #{$primary};
 }
