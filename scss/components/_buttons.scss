@@ -8,7 +8,7 @@
   }
 }
 
-.btn-rounded {
+.connect-btn {
   position: relative;
   font-weight: 700;
   background-color: white;
@@ -25,7 +25,24 @@
   }
 }
 
-.phone-icon-container {
+// .border-gradient {
+//   border: 1px solid transparent;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     border-radius: 50rem;
+//     padding: 2px;
+//     // background: linear-gradient(45deg, red, blue);
+//     @include mixins.gradient;
+//     -webkit-mask: linear-gradient(#fff 0 0) content-box,
+//       linear-gradient(#fff 0 0);
+//     -webkit-mask-composite: xor;
+//     mask-composite: exclude;
+//   }
+// }
+
+.connect__icon-container {
   position: absolute;
   top: 50%;
   right: func.rem(5px);
@@ -38,8 +55,20 @@
   background-color: bootstrap.$primary;
 }
 
-.fa-solid.fa-phone,
-.btn__get-in-touch .fa-solid.fa-arrow-right {
+// .connect-btn,
+.connect-btn .fa-solid.fa-arrow-right {
+  font-size: func.fluid-fs(14, 16, 320, 425);
+}
+
+.connect-btn .fa-solid.fa-arrow-right {
+  // line-height: 2.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fa-solid.fa-phone {
   font-size: 1rem;
   line-height: 2.5;
 }
