@@ -38,6 +38,7 @@
       href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
     /> -->
   </head>
+
   <body>
     <!-- #NAVBAR -->
     <nav class="navbar navbar-expand-xl navbar-dark menu fixed-top shadow">
@@ -89,10 +90,11 @@
 
           <button
             type="button"
-            class="nav__connect-btn rounded-pill btn-rounded"
+            class="nav__connect-btn rounded-pill connect-btn"
+            aria-label="Get in a call"
           >
             +1 2345676532
-            <span class="phone-icon-container rounded-circle">
+            <span class="connect__icon-container rounded-circle">
               <i class="fa-solid fa-phone text-light"></i>
             </span>
           </button>
@@ -117,12 +119,9 @@
               </p>
             </div>
 
-            <button
-              type="button"
-              class="mb-5 btn__get-in-touch rounded-pill btn-rounded"
-            >
+            <button type="button" class="mb-5 rounded-pill connect-btn">
               Get in Touch
-              <span class="phone-icon-container rounded-circle">
+              <span class="connect__icon-container rounded-circle">
                 <i class="fa-solid fa-arrow-right text-light"></i>
               </span>
             </button>
@@ -278,10 +277,11 @@
 
               <button
                 type="button"
-                class="rounded-pill btn__get-in-touch btn-rounded border-primary"
+                class="rounded-pill connect-btn border-primary"
+                aria-label="Get in touch for marketing"
               >
                 Get in Touch
-                <span class="phone-icon-container rounded-circle">
+                <span class="connect__icon-container rounded-circle">
                   <i class="fa-solid fa-arrow-right text-light"></i>
                 </span>
               </button>
@@ -322,10 +322,11 @@
 
               <button
                 type="button"
-                class="btn__get-in-touch rounded-pill btn-rounded border-primary"
+                class="rounded-pill connect-btn border-primary"
+                aria-label="Get in touch for web development"
               >
                 Get in Touch
-                <span class="phone-icon-container rounded-circle">
+                <span class="connect__icon-container rounded-circle">
                   <i class="fa-solid fa-arrow-right text-light"></i>
                 </span>
               </button>
@@ -348,11 +349,12 @@
               </p>
 
               <button
+                aria-label="Get in touch for cloud hosting"
                 type="button"
-                class="btn__get-in-touch rounded-pill btn-rounded border-primary"
+                class="rounded-pill connect-btn border-primary"
               >
                 Get in Touch
-                <span class="phone-icon-container rounded-circle">
+                <span class="connect__icon-container rounded-circle">
                   <i class="fa-solid fa-arrow-right text-light"></i>
                 </span>
               </button>
@@ -918,9 +920,9 @@
           </p>
         </div>
 
-        <div class="row my-5">
-          <div class="col-md-6 gradient text-white shadow p-0">
-            <div class="cta--info w-100 p-xl-5 p-4">
+        <div class="row my-5 cta__card">
+          <div class="col-lg-6 gradient text-white p-0">
+            <div class="cta--info w-100 p-lg-5 p-5">
               <h4 class="display-5 fw-bold">
                 100% <br />
                 Satisfaction <br />
@@ -941,11 +943,11 @@
             </div>
           </div>
 
-          <div class="col-md-6 form__container p-0">
-            <form class="cta--form p-xl-5 p-4">
+          <div class="col-lg-6 form__container p-">
+            <form class="cta--form p-lg-5 p-5">
               <fieldset class="row">
                 <legend class="cta--form-title mb-4">Start Your Project</legend>
-                <div class="col-lg-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="firstName" class="visually-hidden-focusable">
                     First Name
                   </label>
@@ -953,21 +955,22 @@
                     id="firstName"
                     type="text"
                     placeholder="First Name"
-                    class="shadow border-0 form-control form-control-lg"
+                    class="border-0 form-control form-control-lg"
                     required
                   />
                 </div>
 
-                <div class="col-lg-6 mb-3">
+                <div class="col-md-6 mb-3">
                   <label for="lastName" class="visually-hidden">
                     Last Name
                   </label>
+
                   <input
                     id="lastName"
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
-                    class="shadow border-0 form-control form-control-lg"
+                    class="border-0 form-control form-control-lg"
                     required
                   />
                 </div>
@@ -980,7 +983,7 @@
                     type="email"
                     id="inputEmailAddress"
                     name="inputEmailAddress"
-                    class="shadow border-0 form-control form-control-lg"
+                    class="border-0 form-control form-control-lg"
                     placeholder="Email Address"
                     required
                   />
@@ -994,8 +997,7 @@
                     id="inputMessage"
                     name="inputMessage"
                     placeholder="Message"
-                    class="shadow border-0 form-control form-control-lg"
-                    id="message"
+                    class="border-0 form-control form-control-lg"
                     rows="8"
                     required
                   ></textarea>
@@ -1004,7 +1006,7 @@
                 <div class="mt-2">
                   <button
                     type="submit"
-                    class="w-100 bg-primary text-white border-0 p-3 fw-semibold rounded-5"
+                    class="w-100 text-white border-0 p-3 fw-semibold rounded-5"
                   >
                     Submit
                   </button>
