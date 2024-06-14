@@ -1,15 +1,10 @@
 @use "../vendors/custom" as bootstrap;
 @use "../abstracts/mixins";
-@use "../abstracts/functions" as func;
 @use "../components/animations" as animate;
 
 .intro-section {
   @include mixins.gradient;
   padding-top: 10rem;
-}
-
-.intro__description {
-  font-size: clamp(1rem, 1.19048vw + 0.761905rem, 1.5rem);
 }
 
 .fa-solid.fa-circle-play {

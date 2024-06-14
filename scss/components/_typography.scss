@@ -1,4 +1,19 @@
 @use "../vendors/custom" as bootstrap;
+@use "../abstracts/functions" as func;
+
+.section__heading {
+  color: rgb(33, 31, 37);
+  // color: rgb(29, 21, 44);
+}
+
+//  Intro section
+.intro__description {
+  // 1-1.5rem,  330 - 992vw
+  // font-size: clamp(1rem, 1.19048vw + 0.761905rem, 1.5rem);
+  font-size: func.fluid-fs(1rem, 1.5rem, 320, 992);
+}
+
+//
 
 .line::after {
   content: "";
