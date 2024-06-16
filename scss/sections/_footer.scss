@@ -1,6 +1,8 @@
 @use "../vendors/custom" as *;
 @use "../abstracts/functions" as func;
 
+// top footer
+
 .icon-tabler-mail-opened,
 .icon-tabler-phone-call,
 .icon-tabler-map-2 {
@@ -13,4 +15,15 @@
 
 .top-footer__title {
   font-size: func.fluid-fs(16, 18, 320, 768);
+}
+
+//  footer socials
+.footer__socials {
+  background-color: rgba(58, 58, 58, 0.607);
+}
+
+.social-icon {
+  font-size: 1.75rem;
+  width: 2.5rem;
+  // color: white;
 }
