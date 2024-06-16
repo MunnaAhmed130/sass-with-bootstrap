@@ -3,7 +3,6 @@
 @use "../components/animations" as animate;
 
 .intro-section {
-  @include mixins.gradient;
   padding-top: 10rem;
 }
 

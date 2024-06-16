@@ -7,13 +7,14 @@
 }
 
 .cta__card {
-  @include bootstrap.media-breakpoint-up(sm) {
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  @include bootstrap.media-breakpoint-down(sm) {
+    // box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    margin-inline: 0.2rem;
   }
-}
-
-.gradient {
-  @include mixins.gradient;
+  @media screen and (max-width: 425px) {
+    margin-inline: 0;
+  }
 }
 
 .cta--lists {
@@ -46,6 +47,18 @@
   font-weight: 700;
 
   @include mixins.gradient-text;
+}
+
+.cta--form,
+.cta--info {
+  padding: 3rem;
+  @include bootstrap.media-breakpoint-down(sm) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    padding-inline: 1.25rem;
+  }
 }
 
 .field-shadow {

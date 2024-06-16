@@ -1,19 +1,20 @@
 @use "../vendors/custom" as bootstrap;
 @use "../abstracts/functions" as func;
+@use "../abstracts/mixins";
 
 .section__heading {
   color: rgb(33, 31, 37);
   // color: rgb(29, 21, 44);
 }
 
-//  Intro section
-.intro__description {
-  // 1-1.5rem,  330 - 992vw
-  // font-size: clamp(1rem, 1.19048vw + 0.761905rem, 1.5rem);
-  font-size: func.fluid-fs(1rem, 1.5rem, 320, 992);
+.section__subtitle {
+  // 16-18px, 320-768px vw
+  font-size: func.fluid-fs(16, 18, 320, 768);
 }
 
-//
+.gradient-text {
+  @include mixins.gradient-text;
+}
 
 .line::after {
   content: "";
@@ -33,6 +34,14 @@
   // background-color: rgb(128, 50, 216);
 }
 
+//  Intro section
+.intro__description {
+  // 1-1.5rem,  330 - 992vw
+  // font-size: clamp(1rem, 1.19048vw + 0.761905rem, 1.5rem);
+  font-size: func.fluid-fs(1rem, 1.5rem, 320, 992);
+}
+
+//  testimonials
 .testimonials__line {
   // width: 6.25rem;
   width: min(50%, 10rem);

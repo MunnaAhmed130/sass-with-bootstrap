@@ -1,10 +1,10 @@
 @use "../vendors/custom" as bootstrap;
 @use "../abstracts/mixins";
+@use "../abstracts/functions" as func;
 
-.testimonials {
-  @include mixins.gradient();
-  position: relative;
-}
+// .testimonials {
+//   position: relative;
+// }
 
 // testimonials
 
@@ -16,6 +16,10 @@
   text-align: center;
   width: min(100%, 1100px);
   margin-inline: auto;
+}
+
+.testimonials__message {
+  font-size: func.fluid-fs(1rem, 18px, 320, 1024);
 }
 
 .fa-quote-left,

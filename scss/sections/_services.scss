@@ -2,55 +2,32 @@
 @use "../abstracts/mixins";
 @use "../abstracts/functions" as func;
 
-.service {
-  display: flex;
-  align-items: center;
-}
-
 .services__heading {
-  text-transform: uppercase;
   font-weight: 800;
-
-  // gradient text color
-  @include mixins.gradient-text;
-}
-
-.services p {
-  color: rgb(131, 127, 127);
-}
-
-.services__description {
-  font-size: clamp(1rem, 0.426136vw + 0.914773rem, 1.1875rem);
-  // letter-spacing: 1px;
-}
-
-.service__description {
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-
-.service__content {
-  padding: 1rem;
-}
-
-.service__icon {
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
-}
-
-.service__title {
-  font-weight: 700;
-  text-transform: capitalize;
-
-  //  gradient text color
-  display: inline-block;
-  @include mixins.gradient-text;
 }
 
 .description--divider {
   @include bootstrap.media-breakpoint-up(lg) {
     border-right: 2px solid rgb(219, 219, 219);
   }
+}
+
+.services__description {
+  //  19px-16px , 1024-320px
+  // font-size: clamp(1rem, 0.426136vw + 0.914773rem, 1.1875rem);
+  font-size: func.fluid-fs(1rem, 19px, 320, 1024);
+  color: rgb(131, 127, 127);
+}
+
+.service__description {
+  // font-size: 1.1rem;
+  font-size: func.fluid-fs(1rem, 1.1rem);
+  color: rgb(131, 127, 127);
+}
+
+.service__icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 .service__img {

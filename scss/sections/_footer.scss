@@ -1,0 +1,14 @@
+@use "../vendors/custom" as *;
+
+.icon-tabler-mail-opened,
+.icon-tabler-phone-call,
+.icon-tabler-map-2 {
+  stroke: $primary;
+  width: 4rem;
+  @include media-breakpoint-down(sm) {
+    width: 2.5rem;
+  }
+}
+
+.footer__icon-container {
+}

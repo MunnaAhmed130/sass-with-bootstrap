@@ -1,10 +1,6 @@
 @use "../abstracts/mixins";
 @use "../abstracts/functions" as func;
 
-.menu {
-  @include mixins.gradient;
-}
-
 .nav-item {
   padding-inline: func.rem(11px);
 }
@@ -12,8 +8,6 @@
 .scroll-progress-bar__container {
   width: 0vw;
   height: 4px;
-  // background-color: #fff;
-  @include mixins.gradient;
 }
 
 .scroll-progress-bar {
