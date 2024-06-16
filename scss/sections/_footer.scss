@@ -1,4 +1,5 @@
 @use "../vendors/custom" as *;
+@use "../abstracts/functions" as func;
 
 .icon-tabler-mail-opened,
 .icon-tabler-phone-call,
@@ -10,5 +11,6 @@
   }
 }
 
-.footer__icon-container {
+.top-footer__title {
+  font-size: func.fluid-fs(16, 18, 320, 768);
 }
